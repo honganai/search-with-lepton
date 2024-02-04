@@ -6,7 +6,7 @@ on:
     tags: "v*.*.*"
 env:
   # REPO_NAME: ${{ vars.ECR_REPOSITORY }}
-  REPO_NAME: linnk-server
+  REPO_NAME: search-with-lepton
   EKS_NAMESPACE_TEST: ${{ vars.EKS_NAMESPACE_TEST }}
   EKS_NAMESPACE_PROD: ${{ vars.EKS_NAMESPACE_PROD }}
   AWS_DEFAULT_REGION: ${{ vars.AWS_REGION }}
