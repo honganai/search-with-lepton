@@ -6,7 +6,7 @@ COPY web/package.json .
 
 RUN yarn
 
-COPY web/ app/web
+COPY web /app/web
 
 RUN cd /app/web && yarn build
 
