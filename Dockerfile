@@ -1,14 +1,14 @@
 FROM node:18-alpine as stage
 
-WORKDIR /app
+WORKDIR /app/web
 
-COPY web/package.json .
+COPY web/package.json /app/web/package.json
 
 RUN yarn
 
 COPY web /app/web
 
-RUN cd /app/web && yarn build
+RUN ls -lah && yarn build
 
 FROM python:3.11-slim-buster
 
