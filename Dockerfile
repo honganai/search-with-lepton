@@ -1,14 +1,14 @@
 FROM node:18-alpine as stage
 
-WORKDIR /web
+WORKDIR /app
 
 COPY web/package.json .
 
 RUN yarn
 
-COPY web/* .
+COPY web/ app/web
 
-RUN yarn build
+RUN cd /app/web && yarn build
 
 FROM python:3.11-slim-buster
 
@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-COPY --from=stage /web/ui /app/ui
+COPY --from=stage /app/ui /app/ui
 
 EXPOSE 8080
 
